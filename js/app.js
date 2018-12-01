@@ -58,22 +58,22 @@ function game(userChoice) {
 function reset() {
     userScore = 0;
     compScore = 0; 
-    user_span,text(userScore);
+    user_span.text(userScore);
     code_span.text(compScore);
 }
 
 
 $(document).ready( function(){
 
-    rock.on('click touchstart', function() {
+    rock.on('click', function() {
         game("r");
     });
 
-    paper.on('click touchstart', function() {
+    paper.on('click', function() {
         game("p");
     });
 
-    scissors.on('click touchstart', function() {
+    scissors.on('click', function() {
         game("s");
     });
 
