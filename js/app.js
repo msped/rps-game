@@ -1,11 +1,12 @@
 let userScore = 0;
 let compScore = 0;
+let streakScore = 0;
 
 const rock = $('#r');
 const paper = $('#p');
 const scissors = $('#s');
 const resetScores = $('#resetScores');
-
+const streak = $('#streak-score');
 const user_span = $('.user-score');
 const code_span = $('.computer-score');
 const result  = $('#result-text');
@@ -18,20 +19,21 @@ function CodeChoice() {
 
 function win() {
     userScore++;
-    console.log('user + 1');
-    user_span.html(userScore);
+    user_span.text(userScore);
     result.text("Woohoo you win!");
+    streakScore++;
+    streak.text(streakScore);
 }
 
 function lose() {
     compScore++;
-    console.log('comp score + 1');
     code_span.text(compScore);
     result.text("Oh no you lose :(");
+    streakScore = 0;
+    streak.text(streakScore)
 }
 
 function draw() {
-    console.log('No Scores should go up');
     result.text("Phew, its a draw!");
 }
 
@@ -55,6 +57,7 @@ function game(userChoice) {
             draw();
             break;
     }
+
     
 };
 
@@ -63,6 +66,9 @@ function reset() {
     compScore = 0; 
     user_span.text(userScore);
     code_span.text(compScore);
+    result.text('Play to win, Nothing.');
+    streakScore = 0;
+    streak.text(streakScore);
 }
 
 

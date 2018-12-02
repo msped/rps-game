@@ -102,6 +102,20 @@ h1 {
     margin-bottom: 25px;
 }
 
+#streak-text {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#streak-score {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
 .choices {
     text-align: center;
 }
