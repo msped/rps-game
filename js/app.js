@@ -10,6 +10,9 @@ const streak = $('#streak-score');
 const user_span = $('.user-score');
 const code_span = $('.computer-score');
 const result  = $('#result-text');
+const user_div = $('.user-game > span');
+const comp_div = $('.comp-game > span');
+const game_result = $('.game-result');
 
 function CodeChoice() {
     const choice = ['r', 'p', 's'];
@@ -30,7 +33,7 @@ function lose() {
     code_span.text(compScore);
     result.text("Oh no you lose :(");
     streakScore = 0;
-    streak.text(streakScore)
+    streak.text(streakScore);
 }
 
 function draw() {
@@ -38,7 +41,9 @@ function draw() {
 }
 
 function game(userChoice) {
-    
+    const rock = "fas fa-hand-rock";
+    const paper = "fas fa-hand-paper";
+    const scissors = "fas fa-hand-scissors"; 
     const compChoice = CodeChoice();
     switch (userChoice + compChoice) {
         case "rs":
@@ -56,9 +61,32 @@ function game(userChoice) {
         case "ss":
             draw();
             break;
+    }    
+    user_div.removeClass();
+    comp_div.removeClass();
+    switch (userChoice) {
+        case "r":
+            user_div.addClass(rock);
+            break;
+        case "p":
+            user_div.addClass(paper);
+            break;
+        case "s":
+            user_div.addClass(scissors);
+            break;
     }
-
-    
+    switch (compChoice) {
+        case "r":
+            comp_div.addClass(rock);
+            break;
+        case "p":
+            comp_div.addClass(paper);
+            break;
+        case "s":
+            comp_div.addClass(scissors);
+            break;
+    }
+    game_result.removeClass('display');
 };
 
 function reset() {
@@ -69,6 +97,9 @@ function reset() {
     result.text('Play to win, Nothing.');
     streakScore = 0;
     streak.text(streakScore);
+    user_div.removeClass();
+    comp_div.removeClass();
+    game_result.addClass('display');
 }
 
 
@@ -76,6 +107,7 @@ $(document).ready( function(){
 
     rock.on('click', function() {
         game("r");
+
     });
 
     paper.on('click', function() {
