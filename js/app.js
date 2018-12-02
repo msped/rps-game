@@ -18,17 +18,20 @@ function CodeChoice() {
 
 function win() {
     userScore++;
+    console.log('user + 1');
     user_span.html(userScore);
     result.text("Woohoo you win!");
 }
 
 function lose() {
     compScore++;
+    console.log('comp score + 1');
     code_span.text(compScore);
     result.text("Oh no you lose :(");
 }
 
 function draw() {
+    console.log('No Scores should go up');
     result.text("Phew, its a draw!");
 }
 
@@ -77,7 +80,7 @@ $(document).ready( function(){
         game("s");
     });
 
-    resetScores.on('click touchstart', function() {
+    resetScores.on('click', function() {
         reset();
     });
 });
